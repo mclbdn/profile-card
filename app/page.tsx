@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, SVGProps } from "react";
 
 export default function Home() {
   return (
@@ -80,7 +80,7 @@ const SocialIconComponent = ({
   );
 };
 
-const Github = (props) => (
+const Github = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={18}
@@ -95,7 +95,7 @@ const Github = (props) => (
   </svg>
 );
 
-const Linkedin = (props) => (
+const Linkedin = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={16}
@@ -110,7 +110,7 @@ const Linkedin = (props) => (
   </svg>
 );
 
-const Instagram = (props) => (
+const Instagram = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={18}
@@ -125,7 +125,7 @@ const Instagram = (props) => (
   </svg>
 );
 
-const X = (props) => (
+const X = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={18}
