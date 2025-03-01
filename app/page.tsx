@@ -12,8 +12,14 @@ export default function Home() {
 
 const ProfileCard = () => {
   return (
-    <div className="text-center shadow-[0_1px_3px_0_rgba(0_0_0_0.1)] shadow-[0_1px_2px_0_rgba(0_0_0_0.6)] bg-white px-4 py-6 w-[340px] h-[428px] rounded-[8px]">
+    <div
+      role="region"
+      aria-labelledby="profile-name"
+      aria-describedby="profile-description"
+      className="text-center shadow-[0_1px_3px_0_rgba(0_0_0_0.1)] shadow-[0_1px_2px_0_rgba(0_0_0_0.6)] bg-white px-4 py-6 w-[340px] h-[428px] rounded-[8px]"
+    >
       <Image
+        priority
         quality={100}
         className="ml-auto mr-auto mb-6"
         src="/assets/profile.png"
@@ -21,31 +27,34 @@ const ProfileCard = () => {
         height={64}
         alt="Profile picture"
       />
-      <p className="text-[20px] text-neutral-900 font-medium mb-1">
+      <p
+        id="profile-name"
+        className="text-[20px] text-neutral-900 font-medium mb-1"
+      >
         Sarah Dole
       </p>
-      <p className="text-sm text-neutral-600 mb-6">
+      <p id="profile-description" className="text-sm text-neutral-600 mb-6">
         Front End Engineer @ Microsoft
       </p>
       <p className="text-neutral-600 text-[16px] mb-10">
         I turn coffee into bugs which are fixed by someone else. Certified Stack
         Overflow and ChatGPT developer.
       </p>
-      <button className="mb-6 bg-indigo-700 w-full h-11 text-[16px] font-medium rounded-sm hover:bg-indigo-800 enabled:focus:shadow-[0_0_0_4px_rgba(68,76,231,0.12)] enabled:drop-shadow-[0_1px_3px_rgba(0,0,0,0.1)] disabled:shadow-none disabled:text-neutral-400 disabled:bg-neutral-100">
+      <button className="mb-6 hover:cursor-pointer bg-indigo-700 w-full h-11 text-[16px] font-medium rounded-sm hover:bg-indigo-800 enabled:focus:shadow-[0_0_0_4px_rgba(68,76,231,0.12)] enabled:drop-shadow-[0_1px_3px_rgba(0,0,0,0.1)] disabled:shadow-none disabled:text-neutral-400 disabled:bg-neutral-100">
         Contact me
       </button>
 
       <div className="flex justify-center gap-4">
-        <SocialIconComponent>
+        <SocialIconComponent ariaLabel="Visit Sarah's Github">
           <Github />
         </SocialIconComponent>
-        <SocialIconComponent>
+        <SocialIconComponent ariaLabel="Visit Sarah's LinkedIn">
           <Linkedin />
         </SocialIconComponent>
-        <SocialIconComponent>
+        <SocialIconComponent ariaLabel="Visit Sarah's Instagram">
           <Instagram />
         </SocialIconComponent>
-        <SocialIconComponent>
+        <SocialIconComponent ariaLabel="Visit Sarah's X (formerly Twitter)">
           <X />
         </SocialIconComponent>
       </div>
@@ -53,9 +62,16 @@ const ProfileCard = () => {
   );
 };
 
-const SocialIconComponent = ({ children }: { children: ReactNode }) => {
+const SocialIconComponent = ({
+  children,
+  ariaLabel,
+}: {
+  children: ReactNode;
+  ariaLabel: string;
+}) => {
   return (
     <Link
+      aria-label={ariaLabel}
       href={"#"}
       className="w-9 h-9 hover:bg-neutral-50 flex justify-center align-middle items-center rounded-lg focus:shadow-[0_0_0_4px_rgba(68,76,231,0.12)]"
     >
